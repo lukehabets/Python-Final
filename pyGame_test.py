@@ -26,11 +26,11 @@ standingStill = pygame.image.load('images/bikeRight.png')
 bgImage = pygame.image.load('images/bgImage.jpg') #1
 bgImage2 = pygame.image.load('images/bgImage.jpg') #2
 #IMAGES FOR MOTORCYCLE
-leftMoveImage = [pygame.image.load('images/bikeLeft.png'),pygame.image.load('images/bikeLeft.png')]
-rightMoveImage = [pygame.image.load('images/bikeRight.png'),pygame.image.load('images/bikeRight.png')]
+leftMoveImage = pygame.image.load('images/bikeLeft.png')
+rightMoveImage = pygame.image.load('images/bikeRight.png')
 #IMAGES FOR CAR
-carLeftMoveImage = [pygame.image.load('images/carLeft.png'),pygame.image.load('images/carLeft.png')]
-carRightMoveImage = [pygame.image.load('images/carRight.png'),pygame.image.load('images/carRight.png')]
+carLeftMoveImage = pygame.image.load('images/carLeft.png')
+carRightMoveImage = pygame.image.load('images/carRight.png')
 tankLeftImage = pygame.image.load('images/tankLeft.png')
 tankRightImage = pygame.image.load('images/tankRight.png')
 camperLeftImage = pygame.image.load('images/camperLeft.png')
@@ -67,29 +67,29 @@ class motorcycle():
         if randomNum >= 2:
             if not (self.still):
                 if self.leftMove == True:
-                    window.blit(leftMoveImage[self.moveCounter//35],(self.x,self.y)) #draw left image
+                    window.blit(leftMoveImage,(self.x,self.y)) #draw left image
                     self.moveCounter += 1
                 elif self.rightMove == True:
-                    window.blit(rightMoveImage[self.moveCounter//35],(self.x,self.y)) #draw right image
+                    window.blit(rightMoveImage,(self.x,self.y)) #draw right image
                     self.moveCounter += 1
             else:
                 if self.leftMove == True:
-                        window.blit(leftMoveImage[0], (self.x,self.y))
+                        window.blit(leftMoveImage, (self.x,self.y))
                 else:
-                        window.blit(rightMoveImage[0], (self.x,self.y))
+                        window.blit(rightMoveImage, (self.x,self.y))
         else:
             if not (self.still):
                 if self.leftMove == True:
-                    window.blit(carLeftMoveImage[self.moveCounter//35],(self.x,self.y)) #draw left image
+                    window.blit(carLeftMoveImage,(self.x,self.y)) #draw left image
                     self.moveCounter += 1
                 elif self.rightMove == True:
-                    window.blit(carRightMoveImage[self.moveCounter//35],(self.x,self.y)) #draw right image
+                    window.blit(carRightMoveImage,(self.x,self.y)) #draw right image
                     self.moveCounter += 1
             else:
                 if self.leftMove == True:
-                        window.blit(carLeftMoveImage[0], (self.x,self.y))
+                        window.blit(carLeftMoveImage, (self.x,self.y))
                 else:
-                        window.blit(carRightMoveImage[0], (self.x,self.y))
+                        window.blit(carRightMoveImage, (self.x,self.y))
 
 #class for enemies:
 class badGuys():
@@ -179,7 +179,7 @@ def drawScreen():
     window.blit(camperLeftImage, (carX2,540))
 
     bike.charDraw(window) #drawin bike
-    #tank.drawEnemy(window)
+    tank.drawEnemy(window)
 
     #if up arrow is pressed draw bullet
     if keys[pygame.K_UP]:
@@ -195,7 +195,7 @@ def drawScreen():
 #initializing object of class 'motorcycle' named 'bike'
 bike = motorcycle(0, 501, 171, 99)
 #initializing object of class 'badGuys' named 'tank'
-tank = badGuys(0, 651, 120, 42, 480)
+tank = badGuys(0, 550, 120, 42, 680)
 #initializing bullet object
 bullet = shoot(50,550,(0,0,255),5,1)
 
